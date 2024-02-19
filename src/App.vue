@@ -2,8 +2,12 @@
 </script>
 
 <template>
-  <h1>template</h1>
+ <div>
+  <header>
+    <h1>Planificador de gatos</h1>
+  </header>
+   </div>
 </template>
 
-<style scoped>
+<style>
 </style>
