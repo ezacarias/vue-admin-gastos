@@ -1,9 +1,16 @@
 <script setup>
 import { ref } from 'vue'
-const presupuesto = ref(0)
+import Alerta from '../components/Alerta.vue'
+
+const presupuesto =  ref(0)
+const error       =  ref('')
+
 const definirPresupuesto = ()=>{
     if(presupuesto.value <=0){
-        console.log('Presupuesto no valido')
+        error.value = 'Presupuesto no valido'
+        setTimeout(()=>{
+           error.value = ""
+        },3000)
     }
 }
 </script>
@@ -13,7 +20,10 @@ const definirPresupuesto = ()=>{
      class="presupuesto"
      @submit.prevent = "definirPresupuesto"
     >
-      <p class="presupuesto"></p>
+      <Alerta v-if="error">
+       {{ error }}
+      </Alerta>
+      
        <div class="campo">
          <label for="nuevo-presupuesto">Definir presupuesto</label>
          <input 
@@ -22,7 +32,7 @@ const definirPresupuesto = ()=>{
           placeholder="Añade tu presupuesto"
           type="number"
           min="0"
-          v:model.number = "presupuesto"
+          v:model = "presupuesto"
           />
        </div>
        <input type="submit" value="Definir presupuesto">
