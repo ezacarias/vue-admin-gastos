@@ -17,3 +17,5 @@
 #Clase 107.- Validando el presupuesto.
 
 #Clase 108.- Mostrando una alerta de error si el presupuesto es invalido.
+
+#Clase 109.- Mostrando de forma condicional un componente si el presupuesto es valido.
