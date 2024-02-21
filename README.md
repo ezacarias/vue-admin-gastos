@@ -23,3 +23,5 @@
 #Clase 110.- Trabajando con la pantalla de gastos, disponible,  Gastado y más
 
 #Clase 111.- Css al panel del presupuesto.
+
+#Clase 112.- Mostrando el presupuesto disponible.
