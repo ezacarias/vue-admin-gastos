@@ -84,7 +84,6 @@ const definirPresupuesto = ()=>{
         width: 100%;
         transition: background-color 300ms ease;
     }
-
     .presupuesto input[type="submit"]:hover{
         background-color: #1048a4;
         cursor: pointer;
