@@ -29,3 +29,5 @@
 #Clase 113.- Formatear cantidades como dinero.
 
 #Clase 114.- Añadiendo un botón para nuevos gastos.
+
+#Clase 115.- Creando el componente para el modal.
