@@ -31,3 +31,5 @@
 #Clase 114.- Añadiendo un botón para nuevos gastos.
 
 #Clase 115.- Creando el componente para el modal.
+
+#Clase 116.- Css al componente Modal.

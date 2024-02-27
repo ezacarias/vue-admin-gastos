@@ -1,6 +1,6 @@
-export const formatearCantidad = cantidad=>{
- return Number(cantidad).toString('es-US',{
-    style:'currency',
-    currency:'USD'
- });
+export const formatearCantidad=cantidad=>{
+   return Number(cantidad).toLocaleString('es-MX',{
+       style:'currency',
+       currency:'MXN'
+   });
 }
