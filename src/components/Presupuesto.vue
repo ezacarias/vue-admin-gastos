@@ -36,7 +36,7 @@ const definirPresupuesto = ()=>{
           id="nuevo-presupuesto"
           placeholder="Añade tu presupuesto"
           min = "0"
-          v-model.number = "presupuesto"
+          v-model = "presupuesto"
           />
        </div>
        <input type="submit" value="Definir presupuesto">
