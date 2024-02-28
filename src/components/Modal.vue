@@ -12,6 +12,53 @@ const emit = defineEmits(['ocultar-modal'])
             alt=""
             />
         </div>
+        <div 
+          class="contenedor"
+        >
+           <form>
+                <legend>Añadir Gasto</legend>
+                <div class="campo">
+                    <label for="nombre">Nombre Gasto:</label>
+                    <input 
+                      type="text" 
+                      name="nombre" 
+                      id="nombre"
+                      placeholder="Añade el nombre del gasto"
+                      >
+                </div>
+
+                <div class="campo">
+                    <label for="cantidad">Cantidad:</label>
+                    <input 
+                      type="text" 
+                      name="cantidad" 
+                      id="cantidad"
+                      placeholder="Añade la cantidad del gasto ejemplo. 399"
+                      >
+                </div>
+
+                <div class="campo">
+                    <label for="categoria">Categoria:</label>
+                    <select
+                     id="categoria"
+                    >
+                        <option value="">--seleccion--</option>
+                        <option value="ahorro">Ahorro</option>
+                        <option value="comida">Comida</option>
+                        <option value="casa">Casa</option>
+                        <option value="gastos">Gastos Varios</option>
+                        <option value="ocio">Ocio</option>
+                        <option value="salud">Salud</option>
+                        <option value="suscripciones">Suscripciones</option>
+                    </select>
+                </div>
+                <input 
+                 type="submit" 
+                 value="Añadir Gasto"
+                >
+
+           </form>
+        </div>
     </div>
 </template>
 
