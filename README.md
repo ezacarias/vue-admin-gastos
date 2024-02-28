@@ -35,3 +35,5 @@
 #Clase 116.- Css al componente Modal.
 
 #Clase 117.- Añadiendo el formulario en el Modal.
+
+#Clase 118.- Css al formulario Modal.
