@@ -11,7 +11,14 @@ import Modal from './components/Modal.vue';
  })
  const presupuesto = ref(0)
  const disponible  = ref(0)
-
+ const gasto = reactive({
+   nombre: 'Gasto ejemplo',
+   cantidad:'300',
+   categoria:'ahorro',
+   id:null,
+   fecha: Date.now()
+ })
+ 
  const definirPresupuesto = (cantidad) =>{
    presupuesto.value = cantidad
    disponible.value  = cantidad
@@ -57,9 +64,12 @@ import Modal from './components/Modal.vue';
         >
     </div>
     <Modal 
-    v-if="modal.mostrar"
-    @ocultar-modal="ocultarModal"
-    :modal="modal"
+        v-if="modal.mostrar"
+        @ocultar-modal="ocultarModal"
+        :modal="modal"
+        v-model:nombre="gasto.nombre"
+        v-model:cantidad="gasto.cantidad"
+        v-model:categoria="gasto.categoria"
     />
   </main>
 

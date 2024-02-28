@@ -39,3 +39,5 @@
 #Clase 118.- Css al formulario Modal.
 
 #Clase 119.- Añadiendo una animación al modal.
+
+#Clase 120.- Creando el state para los gastos
