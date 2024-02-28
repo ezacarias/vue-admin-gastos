@@ -37,3 +37,5 @@
 #Clase 117.- Añadiendo el formulario en el Modal.
 
 #Clase 118.- Css al formulario Modal.
+
+#Clase 119.- Añadiendo una animación al modal.
