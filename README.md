@@ -41,3 +41,5 @@
 #Clase 119.- Añadiendo una animación al modal.
 
 #Clase 120.- Creando el state para los gastos
+
+#Clase 121.- Escribiendo en el state principal desde el modal con $.emit
