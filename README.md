@@ -43,3 +43,5 @@
 #Clase 120.- Creando el state para los gastos
 
 #Clase 121.- Escribiendo en el state principal desde el modal con $.emit
+
+#Clase 122.- Validando los nuevos gastos
