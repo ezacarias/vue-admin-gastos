@@ -43,10 +43,20 @@ import { generarId } from './helpers'
  }
 
  const guardarGasto = ()=>{
-  gastos.value.push({
-    ...gasto,
-    id:generarId() 
-  })
+      gastos.value.push({
+        ...gasto,
+        id:generarId() 
+      })
+      ocultarModal()
+      //reiniciar el objeto
+      Object.assign(gasto,{
+        nombre: '',
+        cantidad:'',
+        categoria:'',
+        id:null,
+        fecha: Date.now()
+      })
+  }
  }
 </script>
 

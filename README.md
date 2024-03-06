@@ -51,3 +51,5 @@
 #Clase 124.- Almacenando Gastos en el state.
 
 #Clase 125.- Generando un unico ID sin dependencias
+
+#Clase 126.- Ocultar Modal y reiniciar formulario una vez que se agrega un gasto.
