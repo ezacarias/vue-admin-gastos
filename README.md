@@ -49,3 +49,5 @@
 #Clase 123.- Emitiendo hacia el componente padre.
 
 #Clase 124.- Almacenando Gastos en el state.
+
+#Clase 125.- Generando un unico ID sin dependencias
