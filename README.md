@@ -47,3 +47,5 @@
 #Clase 122.- Validando los nuevos gastos
 
 #Clase 123.- Emitiendo hacia el componente padre.
+
+#Clase 124.- Almacenando Gastos en el state.

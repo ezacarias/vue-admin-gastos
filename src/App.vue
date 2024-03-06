@@ -11,6 +11,7 @@ import Modal from './components/Modal.vue';
  })
  const presupuesto = ref(0)
  const disponible  = ref(0)
+
  const gasto = reactive({
    nombre: 'Gasto ejemplo',
    cantidad:'300',
@@ -18,6 +19,8 @@ import Modal from './components/Modal.vue';
    id:null,
    fecha: Date.now()
  })
+
+ const gastos = ref([])
  
  const definirPresupuesto = (cantidad) =>{
    presupuesto.value = cantidad
@@ -39,8 +42,10 @@ import Modal from './components/Modal.vue';
  }
 
  const guardarGasto = ()=>{
-  console.log('desde app.vue')
-  console.log(gasto)
+  gastos.value.push({
+    ...gasto,
+    id:123 
+  })
  }
 </script>
 
