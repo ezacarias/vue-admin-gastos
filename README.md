@@ -45,3 +45,5 @@
 #Clase 121.- Escribiendo en el state principal desde el modal con $.emit
 
 #Clase 122.- Validando los nuevos gastos
+
+#Clase 123.- Emitiendo hacia el componente padre.

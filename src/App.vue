@@ -37,6 +37,11 @@ import Modal from './components/Modal.vue';
      modal.mostrar = false 
   }, 300);
  }
+
+ const guardarGasto = ()=>{
+  console.log('desde app.vue')
+  console.log(gasto)
+ }
 </script>
 
 <template>
@@ -66,6 +71,7 @@ import Modal from './components/Modal.vue';
     <Modal 
         v-if="modal.mostrar"
         @ocultar-modal="ocultarModal"
+        @guardar-gasto="guardarGasto"
         :modal="modal"
         v-model:nombre="gasto.nombre"
         v-model:cantidad="gasto.cantidad"
