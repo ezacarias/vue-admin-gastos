@@ -62,7 +62,7 @@ import { generarId } from './helpers'
 </script>
 
 <template>
- 
+  <div :class="{fijar: modal.mostrar}">
   <header>
     <h1>Planificador de gastos</h1>
     <div class="contenedor-header contenedor sombra">

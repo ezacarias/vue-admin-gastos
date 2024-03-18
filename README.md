@@ -59,3 +59,5 @@
 #Clase 128.- Mostrar los gastos e iconos de las categorias.
 
 #Clase 129.- Aplicando css a los gastos
+
+#Clase 130.- Fijar el modal si tenemos muchos gastos
