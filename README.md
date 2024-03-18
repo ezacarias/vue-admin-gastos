@@ -53,3 +53,5 @@
 #Clase 125.- Generando un unico ID sin dependencias
 
 #Clase 126.- Ocultar Modal y reiniciar formulario una vez que se agrega un gasto.
+
+#Clase 127.- Primeros pasos mostrando los gastos.
