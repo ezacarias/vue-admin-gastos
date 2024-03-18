@@ -11,8 +11,9 @@ import { generarId } from './helpers'
     mostrar:false,
     animar:false
  })
- const presupuesto = ref(0)
- const disponible  = ref(0)
+ const presupuesto = ref(0);
+ const disponible  = ref(0);
+ const gastado     = ref(0);
 
  const gasto = reactive({
    nombre: 'Gasto ejemplo',
@@ -24,6 +25,14 @@ import { generarId } from './helpers'
 
  const gastos = ref([])
  
+ watch(gastos,()=>{
+    const totalGastado = gastos.value.reduce((total, gasto)=>gasto.cantidad +total ,0 );
+    gastado.value=totalGastado;
+    
+  },{
+    deep:true,
+  })
+
  const definirPresupuesto = (cantidad) =>{
    presupuesto.value = cantidad
    disponible.value  = cantidad
@@ -74,6 +83,7 @@ import { generarId } from './helpers'
       v-else
       :presupuesto="presupuesto"
       :disponible ="disponible"
+      :gastado="gastado"
       />
     </div>
   </header>

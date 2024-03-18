@@ -61,3 +61,5 @@
 #Clase 129.- Aplicando css a los gastos
 
 #Clase 130.- Fijar el modal si tenemos muchos gastos
+
+#Clase 131.- Calcular el Total Gastado en base a los gastoos y RETO 03
