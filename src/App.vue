@@ -81,7 +81,7 @@ import { generarId } from './helpers'
     <div class="listado-gastos contenedor">
       <h2>{{ gastos.length>0? 'Gastos': 'No hay Gastos' }}</h2>
       <Gasto 
-        v-for="gatos in gastos"
+      v-for="gasto in gastos"
         :key="gasto.id"
         :gasto="gasto"
       />

@@ -55,3 +55,5 @@
 #Clase 126.- Ocultar Modal y reiniciar formulario una vez que se agrega un gasto.
 
 #Clase 127.- Primeros pasos mostrando los gastos.
+
+#Clase 128.- Mostrar los gastos e iconos de las categorias.
