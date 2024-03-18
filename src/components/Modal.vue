@@ -9,6 +9,10 @@ const props = defineProps({
         type: Object,
         required: true
     },
+    disponible:{
+            type:Number,
+            required:true, 
+   },
     nombre:{
         type:String,
         required:true
@@ -23,27 +27,39 @@ const props = defineProps({
     }
 })
 
-const agregarGasto = ()=>{
- //Validar que no haya campos vacios
- const { cantidad, categoria, nombre } = props
- if([nombre, cantidad, categoria].includes('')){
-    error.value = 'Todos los campos son obligatorios'
-    setTimeout(() => {
-      error.value = ''
-    }, 3000);
-    return
- }
+const agregarGasto=()=>{
+        //Validar formulario
+        const {nombre,cantidad,categoria,disponible} = props;
+        if([nombre,cantidad,categoria].includes('')){
+            error.value='todos los campos son requeridos'
+            setTimeout(()=>{
+                error.value=''
+            },2000)
+            return
+        }
 
- if(cantidad <=0){
-   error.value = 'Cantidad no valida'
-   setTimeout(() => {
-      error.value = ''
-    }, 3000);
-    return
- }
- emit('guardar-gasto')
+        //Validar la cantidad
+        if(cantidad <= 0){
 
-}
+            error.value='cantidad no válido'
+            setTimeout(()=>{
+                error.value=''
+            },2000)
+            return
+        }
+        //Guardar datos
+        if(disponible >= cantidad ){
+            emit('guardar-gasto');
+        }else{
+            
+            error.value='Saldo insuficiente';
+            setTimeout(()=>{
+                error.value=''
+            },2000)
+        }
+            
+
+    }
 </script>
 <template>
     <div class="modal">
