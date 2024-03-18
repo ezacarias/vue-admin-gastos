@@ -57,3 +57,5 @@
 #Clase 127.- Primeros pasos mostrando los gastos.
 
 #Clase 128.- Mostrar los gastos e iconos de las categorias.
+
+#Clase 129.- Aplicando css a los gastos
