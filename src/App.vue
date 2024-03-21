@@ -32,7 +32,17 @@ import { generarId } from './helpers'
   },{
     deep:true,
   })
-*/
+  */
+/*
+watch(modal,()=>{
+      if(!modal.mostrar){
+        reiniciarObjeto();
+    }
+  },{
+    deep:true
+  })
+  */
+  
  const definirPresupuesto = (cantidad) =>{
    presupuesto.value = cantidad
    disponible.value  = cantidad
@@ -67,6 +77,22 @@ import { generarId } from './helpers'
         fecha: Date.now()
       })
   }
+
+  const reiniciarObjeto=()=>{
+    Object.assign(gasto,{
+      nombre:'',
+      cantidad:'',
+      categoria:'',
+      id:null,
+      fecha:Date.now(), 
+    })
+  }
+
+  const seleccionarGasto=id=>{
+    const gastoEditar=gastos.value.filter(gasto=> gasto.id === id)[0];
+    Object.assign(gasto, gastoEditar);
+    mostraModal();
+  }
 </script>
 
 <template>
@@ -99,6 +125,7 @@ import { generarId } from './helpers'
       v-for="gasto in gastos"
         :key="gasto.id"
         :gasto="gasto"
+        @seleccionar-gasto="seleccionarGasto"
       />
     </div>
 

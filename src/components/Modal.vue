@@ -2,8 +2,16 @@
 import { ref } from 'vue'
 import Alerta from './Alerta.vue'
 import cerrarModal from '../assets/img/cerrar.svg'
-const emit = defineEmits(['ocultar-modal','guardar-gasto','update:nombre','update:cantidad','update:categoria'])
+
 const error = ref('')
+const emit = defineEmits([
+    'ocultar-modal',
+    'guardar-gasto',
+    'update:nombre',
+    'update:cantidad',
+    'update:categoria'
+])
+
 const props = defineProps({
     modal:{
         type: Object,
@@ -24,17 +32,25 @@ const props = defineProps({
     categoria:{
         type:String,
         required:true
+    },
+    id:{
+        type:[String, Number],
+        required:true
+    },
+    fecha:{
+        type:String,
+        required:true,
     }
 })
 
 const agregarGasto=()=>{
         //Validar formulario
-        const {nombre,cantidad,categoria,disponible} = props;
+        const { nombre, cantidad, categoria, disponible } = props;
         if([nombre,cantidad,categoria].includes('')){
             error.value='todos los campos son requeridos'
             setTimeout(()=>{
                 error.value=''
-            },2000)
+            },2000) 
             return
         }
 

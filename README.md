@@ -67,3 +67,6 @@
 #Clase 133.- Validar que el usuario no gaste más de lo disponible
 
 #Clase 134.- Definiendo un gasto a Editar
+
+#Clase 135.- Reiniciar el formulario cada que el modal se cierre.
+
