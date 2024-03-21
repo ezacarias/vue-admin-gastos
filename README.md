@@ -65,3 +65,5 @@
 #Clase 131.- Calcular el Total Gastado en base a los gastoos y RETO 03
 
 #Clase 133.- Validar que el usuario no gaste más de lo disponible
+
+#Clase 134.- Definiendo un gasto a Editar

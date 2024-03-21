@@ -16,23 +16,23 @@ import { generarId } from './helpers'
  const gastado     = ref(0);
 
  const gasto = reactive({
-   nombre: 'Gasto ejemplo',
-   cantidad:'300',
-   categoria:'ahorro',
+   nombre: '',
+   cantidad:'',
+   categoria:'',
    id:null,
    fecha: Date.now()
  })
 
  const gastos = ref([])
- 
+ /*
  watch(gastos,()=>{
     const totalGastado = gastos.value.reduce((total, gasto)=>gasto.cantidad +total ,0 );
     gastado.value=totalGastado;
-    
+    disponible.value = presupuesto.value - totalGastado
   },{
     deep:true,
   })
-
+*/
  const definirPresupuesto = (cantidad) =>{
    presupuesto.value = cantidad
    disponible.value  = cantidad
@@ -67,26 +67,31 @@ import { generarId } from './helpers'
         fecha: Date.now()
       })
   }
- }
 </script>
 
 <template>
-  <div :class="{fijar: modal.mostrar}">
+ <div 
+      :class="{fijar: modal.mostrar}"
+  >
+  
   <header>
     <h1>Planificador de gastos</h1>
-    <div class="contenedor-header contenedor sombra">
-      <Presupuesto
+      <div class="contenedor-header contenedor sombra"
+      >
+        <Presupuesto
         v-if="presupuesto === 0"
-        @definir-presupuesto = "definirPresupuesto"
-      />
-      <ControlPresupuesto                        
-      v-else
-      :presupuesto="presupuesto"
-      :disponible ="disponible"
-      :gastado="gastado"
-      />
-    </div>
+          @definir-presupuesto = "definirPresupuesto"
+        />
+        <ControlPresupuesto                        
+          v-else
+        :presupuesto="presupuesto"
+        :disponible ="disponible"
+        :gastado="gastado"
+        />
+      </div> 
   </header>
+
+
   <main v-if="presupuesto >  0">
     <div class="listado-gastos contenedor">
       <h2>{{ gastos.length>0? 'Gastos': 'No hay Gastos' }}</h2>
@@ -104,6 +109,7 @@ import { generarId } from './helpers'
         @click="mostrarModal"
         >
     </div>
+
     <Modal 
         v-if="modal.mostrar"
         @ocultar-modal="ocultarModal"
@@ -114,7 +120,7 @@ import { generarId } from './helpers'
         v-model:categoria="gasto.categoria"
     />
   </main>
-
+</div>
 </template>
 
 <style>
