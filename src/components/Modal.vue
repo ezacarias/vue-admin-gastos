@@ -46,55 +46,58 @@ const props = defineProps({
 const old =props.cantidad;
 
 const agregarGasto=()=>{
-        const {nombre, cantidad, categoria, disponible, id} = props;
-        if([nombre,cantidad,categoria].includes('')){
-            error.value='todos los campos son requeridos'
-            setTimeout(()=>{
-                error.value=''
-            },2000)
-            return
-        }
-        //Validar la cantidad
-        if(cantidad <= 0){
-            error.value='cantidad no válido'
-            setTimeout(()=>{
-                error.value=''
-            },2000)
-            return
-        }
-        //Validar la cantidad
-        if(cantidad <= 0){
-            error.value='cantidad no válido'
-            setTimeout(()=>{
-                error.value=''
-            },2000)
-            return
-        }
-        //validar que el usuario no gaste de lo disponible
-        if(id){
-            //tomar en cuenta el gasto ya realizado
-            if(cantidad > old + disponible){
-                error.value='Saldo insuficiente';
-                setTimeout(()=>{
-                    error.value=''
-                },2000)
-            }else{
-                emit('guardar-gasto');
-            }
-        }else{
-            if(disponible >= cantidad ){
-                emit('guardar-gasto');
-            }else{
-                
-                error.value='Saldo insuficiente';
-                setTimeout(()=>{
-                    error.value=''
-                },2000)
-            }
-        }
-            
-
+    const {nombre, cantidad, categoria, disponible, id} = props;
+    if([nombre,cantidad,categoria].includes('')){
+        error.value='todos los campos son requeridos'
+        setTimeout(()=>{
+            error.value=''
+        },2000)
+        return
     }
+    //Validar la cantidad
+    if(cantidad <= 0){
+        error.value='cantidad no válido'
+        setTimeout(()=>{
+            error.value=''
+        },2000)
+        return
+    }
+    //Validar la cantidad
+    if(cantidad <= 0){
+        error.value='cantidad no válido'
+        setTimeout(()=>{
+            error.value=''
+        },2000)
+        return
+    }
+    //validar que el usuario no gaste de lo disponible
+    if(id){
+        //tomar en cuenta el gasto ya realizado
+        if(cantidad > old + disponible){
+            error.value='Saldo insuficiente';
+            setTimeout(()=>{
+                error.value=''
+            },2000)
+        }else{
+            emit('guardar-gasto');
+        }
+    }else{
+        if(disponible >= cantidad ){
+            emit('guardar-gasto');
+        }else{
+            
+            error.value='Saldo insuficiente';
+            setTimeout(()=>{
+                error.value=''
+            },2000)
+        }
+    }
+        
+
+}
+const isEditing=computed(()=>{
+    return props.id;
+})
 </script>
 <template>
     <div class="modal">
@@ -113,8 +116,10 @@ const agregarGasto=()=>{
              class="nuevo-gasto"
              @submit.prevent="agregarGasto"
             > 
-                <legend>Añadir Gasto</legend>
-            
+                <legend>
+                    {{ isEditing? 'Editar Gasto':'Añadir Gasto' }}
+                </legend>
+                            
                 <Alerta v-if="error">
                   {{ error }}
                 </Alerta>
@@ -161,10 +166,10 @@ const agregarGasto=()=>{
                         <option value="suscripciones">Suscripciones</option>
                     </select>
                 </div>
-                <input 
-                 type="submit" 
-                 value="Añadir Gasto"
-                >
+                <input type="submit"
+                    :value="[isEditing?'Actualizar Gasto':'Registrar Gasto']"
+                    class=""
+                    />
 
            </form>
         </div>
