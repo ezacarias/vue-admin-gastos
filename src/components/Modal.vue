@@ -172,6 +172,13 @@ const isEditing=computed(()=>{
                     />
 
            </form>
+           <button
+                type="button"
+                class="btn-eliminar"
+                v-if="isEditing"
+            >
+                Eliminat gasto
+            </button>
         </div>
     </div>
 </template>
@@ -239,4 +246,16 @@ const isEditing=computed(()=>{
     font-weight: 700;
     cursor:pointer;
  }
+ .btn-eliminar{
+        border-radius: 1rem;
+        border: none;
+        padding: 1rem;
+        width: 100%;
+        background-color: #ef4444;
+        font-weight: 700;
+        font-size: 2rem;
+        color: var(--blanco);
+        margin-top: 10rem;
+        cursor: pointer;
+    }
 </style>
