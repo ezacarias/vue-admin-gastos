@@ -70,3 +70,5 @@
 
 #Clase 135.- Reiniciar el formulario cada que el modal se cierre.
 
+#Clase 136.- Evitar registros duplicados.
+

@@ -7,7 +7,7 @@ const error       =  ref('')
 const emit = defineEmits(['definir-presupuesto'])
 
 const definirPresupuesto = ()=>{
-    if(presupuesto.value <= 0 || presupuesto.value == ''){
+    if(presupuesto.value <= 0 || presupuesto.value === ''){
         error.value = 'Presupuesto no valido'
         setTimeout(()=>{
            error.value = ''
@@ -36,7 +36,7 @@ const definirPresupuesto = ()=>{
           id="nuevo-presupuesto"
           placeholder="Añade tu presupuesto"
           min = "0"
-          v-model = "presupuesto"
+          v-model.number = "presupuesto"
           />
        </div>
        <input type="submit" value="Definir presupuesto">

@@ -5,11 +5,11 @@ import cerrarModal from '../assets/img/cerrar.svg'
 
 const error = ref('')
 const emit = defineEmits([
-    'ocultar-modal',
-    'guardar-gasto',
     'update:nombre',
     'update:cantidad',
-    'update:categoria'
+    'update:categoria',
+    'ocultar-modal',
+    'guardar-gasto',
 ])
 
 const props = defineProps({
@@ -95,9 +95,11 @@ const agregarGasto=()=>{
              @submit.prevent="agregarGasto"
             > 
                 <legend>Añadir Gasto</legend>
+            
                 <Alerta v-if="error">
                   {{ error }}
                 </Alerta>
+                
                 <div class="campo">
                     <label for="nombre">Nombre Gasto:</label>
                     <input 

@@ -1,11 +1,11 @@
 <script setup>
-import { ref , reactive } from 'vue';
+import { ref , reactive, watch } from 'vue';
 import Presupuesto from './components/Presupuesto.vue';
 import ControlPresupuesto from './components/ControlPresupuesto.vue';
-import iconoNuevoGasto from './assets/img/nuevo-gasto.svg';
 import Modal from './components/Modal.vue';
 import Gasto from './components/Gasto.vue'
 import { generarId } from './helpers'
+import iconoNuevoGasto from './assets/img/nuevo-gasto.svg';
 
  const modal =  reactive({
     mostrar:false,
@@ -24,7 +24,7 @@ import { generarId } from './helpers'
  })
 
  const gastos = ref([])
- /*
+ 
  watch(gastos,()=>{
     const totalGastado = gastos.value.reduce((total, gasto)=>gasto.cantidad +total ,0 );
     gastado.value=totalGastado;
@@ -32,8 +32,8 @@ import { generarId } from './helpers'
   },{
     deep:true,
   })
-  */
-/*
+  
+
 watch(modal,()=>{
       if(!modal.mostrar){
         reiniciarObjeto();
@@ -41,7 +41,7 @@ watch(modal,()=>{
   },{
     deep:true
   })
-  */
+ 
   
  const definirPresupuesto = (cantidad) =>{
    presupuesto.value = cantidad
@@ -63,19 +63,24 @@ watch(modal,()=>{
  }
 
  const guardarGasto = ()=>{
+  if(gasto.id){
+      //editando
+      const {id} = gasto;
+      const i = gastos.value.findIndex(gasto => gasto.id === id)
+      gastos.value[i]={ ...gasto}
+      
+    }else{
+      //registrando
       gastos.value.push({
         ...gasto,
-        id:generarId() 
+        id: generarId()
+      
       })
-      ocultarModal()
-      //reiniciar el objeto
-      Object.assign(gasto,{
-        nombre: '',
-        cantidad:'',
-        categoria:'',
-        id:null,
-        fecha: Date.now()
-      })
+    }
+    
+    cerrarModal();
+    //reiniciar objeto
+    reiniciarObjeto();
   }
 
   const reiniciarObjeto=()=>{
