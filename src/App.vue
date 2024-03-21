@@ -147,6 +147,7 @@ watch(modal,()=>{
         @ocultar-modal="ocultarModal"
         @guardar-gasto="guardarGasto"
         :modal="modal"
+        :id="gasto.id"
         v-model:nombre="gasto.nombre"
         v-model:cantidad="gasto.cantidad"
         v-model:categoria="gasto.categoria"
