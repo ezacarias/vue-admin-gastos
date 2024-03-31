@@ -27,14 +27,16 @@ import iconoNuevoGasto from './assets/img/nuevo-gasto.svg';
 
  const gastos = ref([])
  
- watch(gastos,()=>{
-    const totalGastado = gastos.value.reduce((total, gasto)=>gasto.cantidad +total ,0 );
+watch(gastos,()=>{
+    const totalGastado = gastos.value.reduce((total, gasto)=>gasto.cantidad +total ,0);
     gastado.value=totalGastado;
     disponible.value = presupuesto.value - totalGastado
+    localStorage.setItem('gastos',JSON.stringify(gastos.value));
+
   },{
     deep:true,
   })
-  
+
 
 watch(modal,()=>{
       if(!modal.mostrar){
@@ -114,7 +116,7 @@ watch(modal,()=>{
     }
     return gastos.value;
   });
-  
+
   watch(presupuesto,()=>{
       localStorage.setItem('presupuesto',presupuesto.value);
   })
@@ -125,7 +127,13 @@ watch(modal,()=>{
         presupuesto.value = Number(presupuestoStorage);
         disponible.value = Number(presupuestoStorage);
       }
-  })
+
+      const gastosStorage = localStorage.getItem('gastos');
+      if(gastosStorage){
+        gastos.value = JSON.parse(gastosStorage);
+      }
+
+    })
 </script>
 
 <template>

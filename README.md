@@ -85,3 +85,5 @@
 #Clase 142.- Mostrando los gastos de la categoría seleccionada
 
 #Clase 143.- Almacenando datos en LocalStorate y reto 05
+
+#Clase 144.- Solución reto 05
