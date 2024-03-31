@@ -134,6 +134,14 @@ watch(modal,()=>{
       }
 
     })
+
+    const resetApp=()=>{
+    if(confirm('REiniciar presupuesto y gastos?')){
+      gastos.value=[];
+      presupuesto.value=0;
+    }
+
+  }
 </script>
 
 <template>

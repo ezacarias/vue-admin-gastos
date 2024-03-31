@@ -87,3 +87,5 @@
 #Clase 143.- Almacenando datos en LocalStorate y reto 05
 
 #Clase 144.- Solución reto 05
+
+#Clase 145. Reiniciar la aplicación para definir un nuevo presupuesto y gastos
