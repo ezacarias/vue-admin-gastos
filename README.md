@@ -78,3 +78,5 @@
 
 #Clase 139.- Creando un botón para eliminar gastos
 
+#Clase 140.- Eliminando un gasto
+

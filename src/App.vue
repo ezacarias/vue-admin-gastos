@@ -98,6 +98,15 @@ watch(modal,()=>{
     Object.assign(gasto, gastoEditar);
     mostraModal();
   }
+
+  const eliminarGasto=()=>{
+    if(confirm('Eliminar el registro seleccionado?')){
+    gastos.value=gastos.value.filter(gastoState => gastoState.id !== gasto.id);
+      cerrarModal();
+      reiniciarObjeto();
+    }
+  }
+
 </script>
 
 <template>
@@ -146,6 +155,7 @@ watch(modal,()=>{
         v-if="modal.mostrar"
         @ocultar-modal="ocultarModal"
         @guardar-gasto="guardarGasto"
+        @eliminar-gasto="eliminarGasto"
         :modal="modal"
         :id="gasto.id"
         v-model:nombre="gasto.nombre"
