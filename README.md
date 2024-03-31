@@ -82,3 +82,4 @@
 
 #Clase 141.- Creando un Componente para filtrar gastos por categoria
 
+#Clase 142.- Mostrando los gastos de la categoría seleccionada

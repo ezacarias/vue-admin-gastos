@@ -1,5 +1,5 @@
 <script setup>
-import { ref , reactive, watch } from 'vue';
+import { ref, reactive, watch, computed} from 'vue'
 import Presupuesto from './components/Presupuesto.vue';
 import ControlPresupuesto from './components/ControlPresupuesto.vue';
 import Modal from './components/Modal.vue';
@@ -108,7 +108,12 @@ watch(modal,()=>{
       reiniciarObjeto();
     }
   }
-
+  const gastosFiltrador=computed(()=>{
+    if(filtro.value){
+      return gastos.value.filter( gasto=> gasto.categoria === filtro.value)
+    }
+    return gastos.value;
+  });
 </script>
 
 <template>
@@ -142,7 +147,7 @@ watch(modal,()=>{
     <div class="listado-gastos contenedor">
       <h2>{{ gastos.length>0? 'Gastos': 'No hay Gastos' }}</h2>
       <Gasto 
-      v-for="gasto in gastos"
+      v-for="gasto in gastosFiltrador"
         :key="gasto.id"
         :gasto="gasto"
         @seleccionar-gasto="seleccionarGasto"
