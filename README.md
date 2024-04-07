@@ -91,3 +91,5 @@
 #Clase 145. Reiniciar la aplicación para definir un nuevo presupuesto y gastos
 
 #Clase 146.- Graficar el avance en el gasto
+
+#Clase 147.- Mostrando un porcentaje de gastos

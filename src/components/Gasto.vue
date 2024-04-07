@@ -12,12 +12,14 @@
     const diccionarioIconos = {
         ahorro : IconoAhorro,
         comida : IconoComida,
-        casa   : IconoCasa,
+        casa : IconoCasa,
         gastos : IconoGastos,
-        ocio   : IconoOcio,
-        salud  : IconoSalud,
+        ocio : IconoOcio,
+        salud : IconoSalud,
         suscripciones : IconoSuscripciones
     }
+
+    
     const props =defineProps({
         gasto:{
             type:Object,
@@ -35,12 +37,11 @@
                 alt="icono Gasto"
                 class="icono"
                 />
-                <div class="detalles">
+            <div class="detalles">
                 <p class="categoria">{{  gasto.categoria }}</p>
                 <p class="nombre"
                     @click="$event=>emit('seleccionar-gasto',gasto.id)"
-                >{{ gasto.nombre }}
-                </p>
+                >{{ gasto.nombre }}</p>
 
                 <p class="fecha">Fecha: <span>{{ formatearFecha(gasto.fecha) }}</span></p>
             </div>

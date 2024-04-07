@@ -1,49 +1,51 @@
 <script setup>
-import { ref } from 'vue'
-import Alerta from '../components/Alerta.vue'
-const presupuesto =  ref(0)
-const error       =  ref('')
+    import { ref } from 'vue'
+    import Alerta from './Alerta.vue'
+    const presupuesto = ref(0);
+    const error =ref('');
+    const emit = defineEmits(['definir-presupuesto']);
 
-const emit = defineEmits(['definir-presupuesto'])
-
-const definirPresupuesto = ()=>{
-    if(presupuesto.value <= 0 || presupuesto.value === ''){
-        error.value = 'Presupuesto no valido'
-        setTimeout(()=>{
-           error.value = ''
-        },3000)
-        return
+    const definirPresupuesto =()=>{
+        if(presupuesto.value <= 0 || presupuesto.value === ''){
+            error.value = 'Presupuesto no valido';
+            setTimeout(()=>{
+                error.value=''
+            },3000)
+            return
+        }
+        emit('definir-presupuesto', presupuesto.value);
     }
-    emit('definir-presupuesto',presupuesto.value);
-}
+
+
 
 </script>
-
 <template>
     <form
-     class="presupuesto"
-     @submit.prevent = "definirPresupuesto"
+        class="presupuesto"
+        @submit.prevent="definirPresupuesto"
     >
-      <Alerta v-if="error">
-       {{ error }}
-      </Alerta>
-      
-       <div class="campo">
-         <label for="nuevo-presupuesto">Definir presupuesto</label>
-         <input 
-          type="number"
-          class="nuevo-presupuesto"
-          id="nuevo-presupuesto"
-          placeholder="Añade tu presupuesto"
-          min = "0"
-          v-model.number = "presupuesto"
-          />
-       </div>
-       <input type="submit" value="Definir presupuesto">
+        <Alerta 
+            v-if="error"
+        >
+            {{ error }}
+        </Alerta>
+        <div class="campo">
+            <label for="nuevo-presupuesto">
+                Definir Presupuesto
+            </label>
+            <input
+                    type="number"
+                    class="nuevo-presupuesto"
+                    id="nuevo-presupuesto"
+                    min="0"
+                    placeholder="Registra tu Presupuesto"
+                    v-model.number="presupuesto"
+                >
+        </div>
+        
+        <input type="submit" value="Definir Presupuesto"/>
     </form>
 </template>
-
-
 
 <style scoped>
     .presupuesto{
@@ -84,8 +86,12 @@ const definirPresupuesto = ()=>{
         width: 100%;
         transition: background-color 300ms ease;
     }
+
     .presupuesto input[type="submit"]:hover{
         background-color: #1048a4;
         cursor: pointer;
     }
+    
+
+
 </style>

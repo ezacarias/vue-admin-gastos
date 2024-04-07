@@ -1,14 +1,14 @@
 export const formatearCantidad=cantidad=>{
-   return Number(cantidad).toLocaleString('es-MX',{
-       style:'currency',
-       currency:'MXN'
-   });
+    return Number(cantidad).toLocaleString('es-MX',{
+        style:'currency',
+        currency:'MXN'
+    });
 }
 
-export const generarId = ()=>{
+export const generarId=()=>{
     const fecha = Date.now().toString(36);
     const random = Math.random().toString(36).substring(2);
-    return random + fecha; 
+    return fecha + random;
 }
 
 export const formatearFecha=fecha=>{
