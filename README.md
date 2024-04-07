@@ -89,3 +89,5 @@
 #Clase 144.- Solución reto 05
 
 #Clase 145. Reiniciar la aplicación para definir un nuevo presupuesto y gastos
+
+#Clase 146.- Graficar el avance en el gasto
